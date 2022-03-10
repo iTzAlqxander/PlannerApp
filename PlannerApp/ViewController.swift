@@ -9,11 +9,15 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var saveEvents: UIBarButtonItem!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var addEvent: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var plans = ["homework", "book"]
+    let userDefaults = UserDefaults.standard
+    var date2 = " "
+    var plans = ["Quiz", "Homework"]
     var colors = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         
     override func viewDidLoad() {
@@ -22,6 +26,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
 
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let dayInWeek = dateFormatter.string(from: date)
+        
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "MM-dd"
+        let dayNumber = dateFormatter2.string(from:date)
+        date2 = String(dayNumber)
+        dateLabel.text = dayInWeek + " " + dayNumber
+
+        let strings: [String] = userDefaults.object(forKey: "plansArray") as? [String] ?? []
+        plans = strings
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -43,6 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if editingStyle == .delete {
             plans.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         } else if editingStyle == .insert {
          //blank
     }
@@ -50,10 +68,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
-        let verticalPadding: CGFloat = 10
+        let verticalPadding: CGFloat = 15
 
         let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.cornerRadius = 8    //if you want round edges
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
@@ -78,4 +96,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    @IBAction func pressSave(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.set(plans, forKey: "plansArray")
+        let number = plans.count
+        if number > 9 {
+            addEvent.isEnabled = false
+        } else {
+            addEvent.isEnabled = true
+        }
+    }
 }

@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,21 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cMP-g6-KVp">
-                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-fw-oxD">
+                                <rect key="frame" x="63" y="95" width="289" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cMP-g6-KVp">
+                                <rect key="frame" x="10" y="138" width="394" height="724"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.8799856868" blue="0.96375559720000004" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="1" green="0.8799856868" blue="0.96375559720000004" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.87998568675331512" blue="0.96375559719013548" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="Yxx-TU-zhl" style="IBUITableViewCellStyleDefault" id="5ck-kb-0EX">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="88.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="88.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ck-kb-0EX" id="VxT-d5-jx5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="88.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="88.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yxx-TU-zhl">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="88.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="354" height="88.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="40"/>
                                                     <nil key="textColor"/>
@@ -45,15 +52,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99920433760000005" green="0.89794957639999995" blue="0.97101634739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cMP-g6-KVp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="J6N-Xx-aBA"/>
-                            <constraint firstItem="cMP-g6-KVp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mkk-v1-eCk"/>
-                            <constraint firstItem="cMP-g6-KVp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="aJ0-md-b4l"/>
-                            <constraint firstItem="cMP-g6-KVp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bg9-xq-ixz"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="upF-dT-QQm">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="jTV-9a-5se">
+                            <color key="tintColor" red="0.2452429388" green="0.11596930279999999" blue="0.38166311359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="pressSave:" destination="BYZ-38-t0r" id="zWr-ob-eCB"/>
+                            </connections>
+                        </barButtonItem>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Event Here" textAlignment="center" minimumFontSize="17" id="zL5-wr-Y6m">
                             <rect key="frame" x="125.5" y="5" width="163.5" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -61,7 +68,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XMk-NC-KrU">
-                            <color key="tintColor" name="First"/>
+                            <color key="tintColor" red="0.2452429388" green="0.11596930279999999" blue="0.38166311359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addToTable:" destination="BYZ-38-t0r" id="cqQ-Av-ip8"/>
                             </connections>
@@ -69,6 +76,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addEvent" destination="XMk-NC-KrU" id="uWI-sJ-TLm"/>
+                        <outlet property="dateLabel" destination="Oe5-fw-oxD" id="qxT-zd-0Cu"/>
+                        <outlet property="saveEvents" destination="jTV-9a-5se" id="4rC-XU-wWc"/>
                         <outlet property="tableView" destination="cMP-g6-KVp" id="0MN-X1-gBL"/>
                         <outlet property="textField" destination="zL5-wr-Y6m" id="6nF-gn-QgT"/>
                     </connections>
@@ -96,9 +105,4 @@
             <point key="canvasLocation" x="18.840579710144929" y="68.973214285714278"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="First">
-            <color red="0.6588235294117647" green="0.90196078431372551" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
