@@ -9,21 +9,21 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var addEvent: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     var plans = ["homework", "book"]
-    var colors: [UIColor] = [.blue, .red, .green]
-
+    var colors = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         tableView.dataSource = self
         tableView.delegate = self
 
-        
-        
     }
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         cell.textLabel?.text = plans[indexPath.row]
         let color = colors[indexPath.row]
-             cell.backgroundColor = color
+        cell.backgroundColor = UIColor.init(named: color)
         return cell
         
     }
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
          //blank
     }
 }
-
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         let verticalPadding: CGFloat = 10
@@ -58,4 +58,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
     }
+    
+    @IBAction func addToTable(_ sender: UIBarButtonItem) {
+        let number = plans.count
+        if number > 9 {
+            addEvent.isEnabled = false
+        } else {
+            addEvent.isEnabled = true
+            if let newEvent = textField.text,
+               textField.text != "" {
+                plans.append(newEvent)
+                tableView.reloadData()
+                textField.text = ""
+            } else {
+                //error correction
+            }
+        }
+        
+        
+    }
+    
 }
