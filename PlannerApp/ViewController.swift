@@ -40,10 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let strings: [String] = userDefaults.object(forKey: "plansArray") as? [String] ?? []
         plans = strings
     }
-        
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plans.count
     }
@@ -79,21 +76,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func addToTable(_ sender: UIBarButtonItem) {
         let number = plans.count
-        if number > 9 {
-            addEvent.isEnabled = false
-        } else {
-            addEvent.isEnabled = true
-            if let newEvent = textField.text,
-               textField.text != "" {
-                plans.append(newEvent)
-                tableView.reloadData()
-                textField.text = ""
-            } else {
-                //error correction
-            }
-        }
-        
-        
+//        if number > 9 {
+//            addEvent.isEnabled = false
+//        } else {
+//            addEvent.isEnabled = true
+//            if let newEvent = textField.text,
+//               textField.text != "" {
+//                plans.append(newEvent)
+//                tableView.reloadData()
+//                textField.text = ""
+//            } else {
+//                //error correction
+//            }
+//        }
     }
     
     @IBAction func pressSave(_ sender: UIBarButtonItem) {
@@ -105,4 +100,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             addEvent.isEnabled = true
         }
     }
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "segue", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        }
+    }
+

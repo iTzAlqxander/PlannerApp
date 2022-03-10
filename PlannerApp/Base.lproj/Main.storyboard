@@ -57,9 +57,6 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="jTV-9a-5se">
                             <color key="tintColor" red="0.2452429388" green="0.11596930279999999" blue="0.38166311359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="pressSave:" destination="BYZ-38-t0r" id="zWr-ob-eCB"/>
-                            </connections>
                         </barButtonItem>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Event Here" textAlignment="center" minimumFontSize="17" id="zL5-wr-Y6m">
                             <rect key="frame" x="125.5" y="5" width="163.5" height="34"/>
@@ -69,17 +66,14 @@
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XMk-NC-KrU">
                             <color key="tintColor" red="0.2452429388" green="0.11596930279999999" blue="0.38166311359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addToTable:" destination="BYZ-38-t0r" id="cqQ-Av-ip8"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addEvent" destination="XMk-NC-KrU" id="uWI-sJ-TLm"/>
-                        <outlet property="dateLabel" destination="Oe5-fw-oxD" id="qxT-zd-0Cu"/>
-                        <outlet property="saveEvents" destination="jTV-9a-5se" id="4rC-XU-wWc"/>
-                        <outlet property="tableView" destination="cMP-g6-KVp" id="0MN-X1-gBL"/>
-                        <outlet property="textField" destination="zL5-wr-Y6m" id="6nF-gn-QgT"/>
+                        <outlet property="addEvent" destination="XMk-NC-KrU" id="4yN-if-zlM"/>
+                        <outlet property="dateLabel" destination="Oe5-fw-oxD" id="zPQ-k4-3EU"/>
+                        <outlet property="saveEvents" destination="jTV-9a-5se" id="Vww-iX-NKY"/>
+                        <outlet property="tableView" destination="cMP-g6-KVp" id="8mg-wE-rWI"/>
+                        <outlet property="textField" destination="zL5-wr-Y6m" id="qnY-i2-SUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
