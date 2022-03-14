@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var date2 = " "
     var plans = ["Quiz", "Homework"]
     var colors = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    let i = 1
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,19 +77,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func addToTable(_ sender: UIBarButtonItem) {
         let number = plans.count
-//        if number > 9 {
-//            addEvent.isEnabled = false
-//        } else {
-//            addEvent.isEnabled = true
-//            if let newEvent = textField.text,
-//               textField.text != "" {
-//                plans.append(newEvent)
-//                tableView.reloadData()
-//                textField.text = ""
-//            } else {
-//                //error correction
-//            }
-//        }
+        if number > 9 {
+            addEvent.isEnabled = false
+        } else {
+            addEvent.isEnabled = true
+            if let newEvent = textField.text,
+               textField.text != "" {
+                plans.append(newEvent)
+                tableView.reloadData()
+                textField.text = ""
+            } else {
+                //error correction
+            }
+        }
     }
     
     @IBAction func pressSave(_ sender: UIBarButtonItem) {
@@ -105,5 +106,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRow(at: indexPath, animated: true)
         
         }
+    
     }
 
